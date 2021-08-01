@@ -24,6 +24,9 @@
         <variable
             name="viewModel"
             type="com.example.cupcake.model.OrderViewModel" />
+        <variable
+            name="pickupFragment"
+            type="com.example.cupcake.PickupFragment" />
     </data>
 
     <ScrollView
@@ -45,24 +48,36 @@
 
                 <RadioButton
                     android:id="@+id/option0"
+                    android:text="@{viewModel.dateOptions[0]}"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[0])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[0])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Thursday" />
 
                 <RadioButton
                     android:id="@+id/option1"
+                    android:text="@{viewModel.dateOptions[1]}"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[1])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[1])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Friday" />
 
                 <RadioButton
                     android:id="@+id/option2"
+                    android:text="@{viewModel.dateOptions[2]}"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[2])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[2])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Saturday" />
 
                 <RadioButton
                     android:id="@+id/option3"
+                    android:text="@{viewModel.dateOptions[3]}"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[3])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[3])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Sunday" />
@@ -82,6 +97,7 @@
             <TextView
                 android:id="@+id/subtotal"
                 style="@style/Widget.Cupcake.TextView"
+                android:text="@{@string/subtotal_price(viewModel.price)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
@@ -91,6 +107,7 @@
 
             <Button
                 android:id="@+id/next_button"
+                android:onClick="@{() -> pickupFragment.goToNextScreen()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"

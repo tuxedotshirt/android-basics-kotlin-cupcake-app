@@ -25,6 +25,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentPickupBinding
 import com.example.cupcake.model.OrderViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * [PickupFragment] allows the user to choose a pickup date for the cupcake order.
@@ -49,8 +51,9 @@ class PickupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
-            nextButton.setOnClickListener { goToNextScreen() }
+            pickupFragment = this@PickupFragment
         }
     }
 
@@ -70,4 +73,5 @@ class PickupFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
 }
