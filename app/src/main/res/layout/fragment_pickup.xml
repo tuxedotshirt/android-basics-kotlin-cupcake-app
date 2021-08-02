@@ -110,12 +110,26 @@
                 android:onClick="@{() -> pickupFragment.goToNextScreen()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/side_margin"
+                android:layout_margin="@dimen/side_margin"
                 android:text="@string/next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
                 app:layout_constraintTop_toBottomOf="@id/subtotal" />
+
+            <Button
+                android:text="@string/cancel"
+                android:id="@+id/cancel_button"
+                android:onClick="@{() -> pickupFragment.cancelOrder()}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                style="?attr/materialButtonOutlinedStyle"
+                app:layout_constraintBottom_toBottomOf="@id/next_button"
+                app:layout_constraintTop_toTopOf="@id/next_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/next_button"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
